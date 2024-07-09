@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=projectmanagement
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_USER=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - project-network
+
+  project-management:
+    build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/projectmanagement
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=12345
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    networks:
+      - project-network
+
+volumes:
+  postgres_data:
+
+networks:
+  project-network:

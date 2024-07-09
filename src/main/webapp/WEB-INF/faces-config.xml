@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+              version="2.3">
+
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    </application>
+
+    <!-- Configuração de managed beans -->
+    <managed-bean>
+        <managed-bean-name>projetoBean</managed-bean-name>
+        <managed-bean-class>com.example.projectmanagementbeltis.view.ProjetoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>tarefaBean</managed-bean-name>
+        <managed-bean-class>com.example.projectmanagementbeltis.view.TarefaBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+
+    <!-- Configuração de navegação -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listarProjeto</from-outcome>
+            <to-view-id>/templates/projeto/listarProjeto.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adicionarProjeto</from-outcome>
+            <to-view-id>/templates/projeto/adicionarProjeto.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarProjeto</from-outcome>
+            <to-view-id>/templates/projeto/editarProjeto.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>visualizarProjeto</from-outcome>
+            <to-view-id>/templates/projeto/visualizarProjeto.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listarTarefa</from-outcome>
+            <to-view-id>/templates/tarefa/listarTarefa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adicionarTarefa</from-outcome>
+            <to-view-id>/templates/tarefa/adicionarTarefa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarTarefa</from-outcome>
+            <to-view-id>/templates/tarefa/editarTarefa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>visualizarTarefa</from-outcome>
+            <to-view-id>/templates/tarefa/visualizarTarefa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

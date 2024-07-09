@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Listagem de Projetos</title>
+    <link rel="stylesheet" type="text/css" href="../../resources/styles/styles.css"/>
+</h:head>
+<h:body>
+    <ui:include src="../../header.xhtml"/>
+
+    <div class="container">
+        <h1>Listagem de Projetos</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Data de Início</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody style="border-color: black; border-width: 5px;">
+            <ui:repeat var="objProjeto" value="#{projetoBean.projetos}">
+                <tr>
+                    <td>#{objProjeto.id}</td>
+                    <td>#{objProjeto.titulo}</td>
+                    <td>#{objProjeto.descricao}</td>
+                    <td>#{objProjeto.dataInicio}</td>
+                    <td>
+                        <h:form>
+                            <h:commandLink value="Editar" action="#{projetoBean.editar(objProjeto.id)}"/>
+                        </h:form>
+                        <h:form>
+                            <h:commandLink value="Excluir" action="#{projetoBean.excluir(objProjeto.id)}"/>
+                        </h:form>
+                    </td>
+                </tr>
+            </ui:repeat>
+            </tbody>
+        </table>
+        <h:form>
+            <h:commandLink value="Adicionar Projeto" action="adicionarProjeto"/>
+        </h:form>
+    </div>
+
+    <ui:include src="../../footer.xhtml"/>
+</h:body>
+</html>

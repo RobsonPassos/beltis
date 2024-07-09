@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="resources/styles/styles.css"/>
+</h:head>
+<h:body>
+    <ui:include src="/header.xhtml"/>
+
+    <div class="container">
+        <h2>Bem-vindo ao Sistema de Gerenciamento de Projetos!</h2>
+
+        <h3>Projetos</h3>
+        <h:form>
+            <h:commandLink value="Adicionar Projeto" action="adicionarProjeto"/>
+        </h:form>
+
+        <h3>Tarefas</h3>
+        <h:form>
+            <h:commandLink value="Adicionar Tarefa" action="adicionarTarefa"/>
+        </h:form>
+    </div>
+
+    <ui:include src="/footer.xhtml"/>
+</h:body>
+</html>
